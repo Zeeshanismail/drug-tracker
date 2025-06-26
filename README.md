@@ -24,7 +24,7 @@ A Laravel REST API that integrates with the [RxNorm API](https://lhncbc.nlm.nih.
 ### 🔧 Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/drug-tracker.git
+git clone https://github.com/Zeeshanismail/drug-tracker.git
 cd drug-tracker
 
 composer install
@@ -32,3 +32,15 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
+
+🔒 Sanctum Setup
+
+composer require laravel/sanctum
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+php artisan migrate
+
+🧪 Testing
+cp .env .env.testing
+php artisan key:generate --env=testing
+php artisan migrate --env=testing
+php artisan test
